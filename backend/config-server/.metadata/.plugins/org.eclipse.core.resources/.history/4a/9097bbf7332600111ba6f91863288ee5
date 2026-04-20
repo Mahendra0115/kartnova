@@ -1,0 +1,5 @@
+package com.kartnova.auth.dto.request;
+
+public class RefreshTokenRequest {
+
+}

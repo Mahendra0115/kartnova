@@ -1,0 +1,12 @@
+package com.kartnova.auth.service.copy;
+
+import com.kartnova.auth.dto.request.LoginRequest;
+import com.kartnova.auth.dto.request.RegisterRequest;
+import com.kartnova.auth.dto.response.AuthResponse;
+
+public interface AuthService {
+
+    AuthResponse register(RegisterRequest request);
+
+    AuthResponse login(LoginRequest request);
+}

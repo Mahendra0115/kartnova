@@ -1,0 +1,26 @@
+# Service name must match config file name and Eureka registration name
+spring.application.name=api-gateway
+
+# Gateway server port
+server.port=8080
+
+# Eureka server location for service registration
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+
+# Register this gateway as a Eureka client
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+
+# Prefer IP for local development display
+eureka.instance.prefer-ip-address=true
+
+# Enable discovery-based routing in Gateway
+spring.cloud.gateway.discovery.locator.enabled=true
+spring.cloud.gateway.discovery.locator.lower-case-service-id=true
+
+management.endpoints.web.exposure.include=health,info,gateway
+management.endpoint.health.show-details=always
+
+info.app.name=KartNova API Gateway
+info.app.description=Entry point for KartNova microservices
+info.app.version=0.0.1-SNAPSHOT

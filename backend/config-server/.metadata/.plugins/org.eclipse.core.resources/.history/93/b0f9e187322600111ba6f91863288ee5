@@ -1,0 +1,5 @@
+package com.kartnova.auth.config;
+
+public class PasswordConfig {
+
+}

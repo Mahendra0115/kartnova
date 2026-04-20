@@ -1,0 +1,5 @@
+package com.kartnova.gateway.filter;
+
+public class RequestLoggingFilter {
+
+}

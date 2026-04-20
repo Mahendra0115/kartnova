@@ -1,0 +1,9 @@
+
+spring.application.name=api-gateway
+
+spring.config.import=optional:configserver:http://localhost:8888
+
+spring.profiles.active=default
+
+management.endpoints.web.exposure.include=health,info,gateway
+management.endpoint.health.show-details=always

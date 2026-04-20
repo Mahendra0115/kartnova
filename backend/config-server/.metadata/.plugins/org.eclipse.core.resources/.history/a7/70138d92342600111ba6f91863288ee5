@@ -1,0 +1,5 @@
+package com.kartnova.auth.dto.response;
+
+public class ApiResponse {
+
+}

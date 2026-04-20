@@ -1,0 +1,44 @@
+package com.kartnova.auth.security;
+
+import com.kartnova.auth.entity.AuthUser;
+import com.kartnova.auth.entity.UserRole;
+import com.kartnova.auth.exception.ResourceNotFoundException;
+import com.kartnova.auth.repository.AuthUserRepository;
+import com.kartnova.auth.repository.UserRoleRepository;
+import com.kartnova.auth.util.AppConstants;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class CustomUserDetailsService implements UserDetailsService {
+
+    private final AuthUserRepository authUserRepository;
+    private final UserRoleRepository userRoleRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String email) {
+        AuthUser authUser = authUserRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException(AppConstants.ERROR_USER_NOT_FOUND));
+
+        List<SimpleGrantedAuthority> authorities = userRoleRepository.findByUser_Id(authUser.getId())
+                .stream()
+                .map(UserRole::getRole)
+                .map(role -> new SimpleGrantedAuthority(AppConstants.ROLE_PREFIX + role.getName().name()))
+                .toList();
+
+        return User.builder()
+                .username(authUser.getEmail())
+                .password(authUser.getPassword())
+                .authorities(authorities)
+                .accountLocked(!authUser.isAccountNonLocked())
+                .disabled(!authUser.isEnabled())
+                .build();
+    }
+}

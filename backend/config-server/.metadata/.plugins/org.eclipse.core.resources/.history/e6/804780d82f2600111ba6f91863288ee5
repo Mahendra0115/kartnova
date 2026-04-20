@@ -1,0 +1,5 @@
+package com.kartnova.auth.repository;
+
+public interface RoleRepository {
+
+}

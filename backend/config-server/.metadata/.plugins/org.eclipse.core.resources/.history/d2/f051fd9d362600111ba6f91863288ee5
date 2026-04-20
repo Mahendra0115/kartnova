@@ -1,0 +1,5 @@
+package com.kartnova.auth.exception;
+
+public class ResourceAlreadyExistsException {
+
+}

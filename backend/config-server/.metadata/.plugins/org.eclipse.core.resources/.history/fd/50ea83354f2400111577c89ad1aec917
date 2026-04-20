@@ -1,0 +1,5 @@
+package com.kartnova.configserver;
+
+public class ConfigServerApplicationTests {
+
+}
