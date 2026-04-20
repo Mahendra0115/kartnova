@@ -1,0 +1,46 @@
+package com.kartnova.auth.util;
+
+public final class AppConstants {
+
+    private AppConstants() {
+    }
+
+    public static final String BASE_AUTH_API = "/api/v1/auth";
+
+    public static final String REGISTER_API = "/register";
+    public static final String LOGIN_API = "/login";
+    public static final String REFRESH_API = "/refresh";
+    public static final String LOGOUT_API = "/logout";
+    public static final String VALIDATE_API = "/validate";
+
+    public static final String AUTHORIZATION = "Authorization";
+    public static final String BEARER = "Bearer ";
+    public static final String TOKEN_TYPE = "Bearer";
+
+    public static final String ROLE_PREFIX = "ROLE_";
+    public static final String DEFAULT_CUSTOMER_ROLE = "CUSTOMER";
+
+    public static final String CLAIM_ROLES = "roles";
+    public static final String CLAIM_USER_ID = "userId";
+
+    public static final String MESSAGE_SUCCESS = "Success";
+    public static final String MESSAGE_REGISTER_SUCCESS = "User registered successfully";
+    public static final String MESSAGE_LOGIN_SUCCESS = "Login successful";
+    public static final String MESSAGE_TOKEN_REFRESH_SUCCESS = "Token refreshed successfully";
+    public static final String MESSAGE_LOGOUT_SUCCESS = "Logout successful";
+    public static final String MESSAGE_TOKEN_VALID = "Token is valid";
+
+    public static final String ERROR_INVALID_CREDENTIALS = "Invalid email or password";
+    public static final String ERROR_EMAIL_ALREADY_EXISTS = "Email already registered";
+    public static final String ERROR_PHONE_ALREADY_EXISTS = "Phone already registered";
+    public static final String ERROR_ROLE_NOT_FOUND = "Default role not found";
+    public static final String ERROR_USER_NOT_FOUND = "User not found";
+    public static final String ERROR_UNAUTHORIZED = "Unauthorized access";
+    public static final String ERROR_VALIDATION_FAILED = "Validation failed";
+    public static final String ERROR_INTERNAL_SERVER = "Internal server error";
+    public static final String ERROR_INVALID_TOKEN = "Invalid token";
+    public static final String ERROR_REFRESH_TOKEN_NOT_FOUND = "Refresh token not found";
+    public static final String ERROR_REFRESH_TOKEN_REVOKED = "Refresh token already revoked";
+    public static final String ERROR_REFRESH_TOKEN_EXPIRED = "Refresh token expired";
+    public static final String ERROR_MISSING_BEARER_TOKEN = "Authorization header is missing or invalid";
+}
